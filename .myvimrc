@@ -1,0 +1,170 @@
+set nocompatible
+syntax on
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
+
+"highlight whitespace
+set list
+"set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:>.,trail:.
+"autocmd filetype html,xml set listchars-=tab:>.
+
+"set mouse=a
+"fun! s:ToggleMouse()
+"    if !exists("s:old_mouse")
+"        let s:old_mouse = "a"
+"    endif
+"
+"    if &mouse == ""
+"        let &mouse = s:old_mouse
+"        echo "Mouse is for Vim (" . &mouse . ")"
+"    else
+"        let s:old_mouse = &mouse
+"        let &mouse=""
+"        echo "Mouse is for terminal"
+"    endif
+"endfunction
+"map <silent> <F8> :call ToggleMouse() <CR>
+
+"clear search buffer when you press ,/
+nmap <silent> ,/ :nohlsearch<CR>
+
+nmap <silent> ww :wq<CR>
+nmap <silent> qq :q<CR>
+nmap <silent> qa :qa<CR>
+nmap <silent> qp :q!<CR>
+nmap <silent> zz <C-z>
+
+"utf-8
+set enc=utf-8
+set encoding=utf-8
+
+"set tabstop=2
+"set softtabstop=2
+"set shiftwidth=2
+"set expandtab
+
+set nowrapscan
+set ignorecase
+
+" list all colorscheme :colorscheme ^+d
+"colorscheme evening
+"colorscheme desert
+"colorscheme zellner
+"colorscheme peachpuff
+colorscheme delek
+
+set wrapscan
+set guifont=consolas:h11
+set nu
+
+"ctags
+set tags=tags;
+set autochdir
+
+"Key binding"
+nmap <C-n> :tabnew<CR> 
+nmap <C-k> :tabc<CR> 
+nmap <C-o> :tabe<SPACE> 
+
+"Taglist
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+nmap tt :Tlist<CR>
+
+"Windows manager
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<CR>
+nmap <silent> op :FirstExplorerWindow<cr>
+nmap <silent> kl :BottomExplorerWindow<cr> 
+
+
+"Multifile edit
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplMapWindowsNavVim=1
+let g:miniBufExplMapWindowNavArrows=1
+
+"switch between h/cpp/c
+nnoremap <silent> <F12> :A<CR>
+
+"grep
+nnoremap <silent> <F3> :Grep<CR>
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+  if &sh =~ '\<cmd'
+  let cmd = '""' . $VIMRUNTIME . '\diff"'
+  let eq = '"'
+  else
+  let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+  endif
+  else
+  let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set history=700
+
+" Turn backup off, since most stuff is in SVN, git anyway...
+set nobackup
+set nowb
+set noswapfile
+set incsearch
+set hlsearch
+set ruler
+"set cursorline
+set paste
+
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+" always show status line - and show more info on it
+set laststatus=2
+"set ruler " how position - not needed because now I define statusline explicitly
+set statusline=%F%m%r%h%w\ %{&ff}\ %Y\ ascii=\%03.3b\ hex=\%02.2B\ [%04l,%04v](%p%%\ of\ %L)
+
+" -------------------------------------
+"use F7 to toggle line numbers
+function! ToggleLineNumbers()
+  if &number
+  set nonumber
+  else
+  set number
+  endif
+endfunction
+
+map <silent> <F7> :call ToggleLineNumbers() <CR>
+
+function! ToggleTab()
+  if &expandtab
+  set noexpandtab
+  else
+  set expandtab
+  endif
+endfunction
+
+map <silent> <F8> :call ToggleTab() <CR>
+" -------------------------------------
+"To avoid invoking help when accidentally pressing F1, map it to
+map <F1> <Esc>
+imap <F1> <Esc>
+
+set backspace=indent,eol,start
+
+function! s:Terminal()
+  execute 'ConqueTermSplit bash --login'
+endfunction
+command! TT call s:Terminal()
+let g:ConqueTerm_CloseOnEnd=0
