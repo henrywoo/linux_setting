@@ -49,5 +49,5 @@ class SafeMover():
 if __name__=="__main__":
   curdir=os.getcwd()
   sm = SafeMover(flist_level1)
-  sm.backupfile("~")
-  sm.copy(curdir,"~")
+  sm.backupfile("/root/")
+  sm.copy(curdir,"/root/")
