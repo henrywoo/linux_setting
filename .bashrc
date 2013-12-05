@@ -21,4 +21,7 @@ export ZLIB_LIBRARY=/lib64
 export ZLIB_INCLUDE_DIR=/usr/lib/include
 export BOOST_ROOT=/usr/local/boost
 export BOOST_HOME=/usr/local/boost
-export PATH=$PATH:/usr/local/bin
+export JAVA_HOME=/nfs/jdk
+
+
+export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin
