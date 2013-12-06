@@ -19,9 +19,12 @@ fi
 
 export ZLIB_LIBRARY=/lib64
 export ZLIB_INCLUDE_DIR=/usr/lib/include
-export BOOST_ROOT=/usr/local/boost
-export BOOST_HOME=/usr/local/boost
+
+export BOOST_ROOT=/nfs/boost
+export BOOST_HOME=/nfs/boost
 export JAVA_HOME=/nfs/jdk
 
+export PYTHONHOME=/nfs/python
 
-export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin
+
+export PATH=$JAVA_HOME/bin:$PYTHONHOME/bin:$PATH:/usr/local/bin
