@@ -33,5 +33,5 @@ export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin
 
 #a function to git push ASAP
 ggg(){
-  git add . && git commit -m '$1' && git push
+  git add . && git commit -m "$1" && git push # ' -> "
 }
