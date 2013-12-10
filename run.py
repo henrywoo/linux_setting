@@ -16,8 +16,8 @@ class SafeMover():
   def __init__(self,flist_level1):
     self.flist_level1 = flist_level1
 
-  """copy flist_level1 in old directory to new directory"""
   def copy(self,odir,ndir,fs=flist_level1):
+    """copy flist_level1 in old directory to new directory"""
     for i in fs:
       oldpath = os.path.join(odir, i)
       newpath = os.path.join(ndir, i)
@@ -51,3 +51,5 @@ if __name__=="__main__":
   sm = SafeMover(flist_level1)
   sm.backupfile("/root/")
   sm.copy(curdir,"/root/")
+  os.system('. /root/.bashrc')
+
