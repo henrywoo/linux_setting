@@ -13,6 +13,8 @@ alias lt='ls -alFcpt --color=always' # -X sort by extension
 alias l='ls -alF --color=always'
 alias vi='vim -u ~/.myvimrc'
 alias gp='grep --color=always'
+#alias m='mysql -S /nfs/data/mysql.sock'
+alias m='mysql -P 3306 -u root --host=ubu'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
