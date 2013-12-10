@@ -9,6 +9,7 @@ alias mv='mv -i'
 alias ll='ls -alF --color=always' # -X sort by extension
 alias lx='ls -alFX --color=always' # -X sort by extension
 alias lz='ls -alF --sort=size --color=always' # -X sort by extension
+alias lt='ls -alFcpt --color=always' # -X sort by extension
 alias l='ls -alF --color=always'
 alias vi='vim -u ~/.myvimrc'
 alias gp='grep --color=always'
