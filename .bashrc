@@ -30,3 +30,8 @@ export JAVA_HOME=/nfs/jdk
 #export PYTHONHOME=/nfs/python
 #export PATH=$JAVA_HOME/bin:$PYTHONHOME/bin:$PATH:/usr/local/bin
 export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin
+
+#a function to git push ASAP
+ggg(){
+  git add . && git commit -m '$1' && git push
+}
