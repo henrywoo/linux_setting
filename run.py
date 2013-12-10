@@ -7,7 +7,7 @@ flist_level1=[
 '.vim',
 ]
 
-class SafeMover():
+class SafeMover:
   """back up the original file to x.bak and copy the new file"""
 
   def __init__(self):
@@ -51,5 +51,5 @@ if __name__=="__main__":
   sm = SafeMover(flist_level1)
   sm.backupfile("/root/")
   sm.copy(curdir,"/root/")
-  os.system('. /root/.bashrc')
+  print('. /root/.bashrc')
 
