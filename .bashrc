@@ -18,7 +18,7 @@ alias m='mysql -P 3306 -u root --host=ubu'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+. /etc/bashrc
 fi
 
 
@@ -47,3 +47,4 @@ ggg(){
 #To connect to pypi.python.org insecurely, use `--no-check-certificate'.
 #Unable to establish SSL connection.
 alias wget='wget --no-check-certificate'
+alias ccat='pygmentize -g'
