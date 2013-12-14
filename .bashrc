@@ -37,3 +37,13 @@ export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin
 ggg(){
   git add . && git commit -m "$1" && git push # ' -> "
 }
+
+#[c58][3][-bash](18:06:02)[0](root):/nfs/software[1034]
+#$wget https://pypi.python.org/packages/source/F/Flask/Flask-0.10.tar.gz
+#--2013-12-13 18:06:34--  https://pypi.python.org/packages/source/F/Flask/Flask-0.10.tar.gz
+#Resolving pypi.python.org... 103.245.222.184
+#Connecting to pypi.python.org|103.245.222.184|:443... connected.
+#ERROR: certificate common name `*.a.ssl.fastly.net' doesn't match requested host name `pypi.python.org'.
+#To connect to pypi.python.org insecurely, use `--no-check-certificate'.
+#Unable to establish SSL connection.
+wget='wget --no-check-certificate'
