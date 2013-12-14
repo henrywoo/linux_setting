@@ -46,4 +46,4 @@ ggg(){
 #ERROR: certificate common name `*.a.ssl.fastly.net' doesn't match requested host name `pypi.python.org'.
 #To connect to pypi.python.org insecurely, use `--no-check-certificate'.
 #Unable to establish SSL connection.
-wget='wget --no-check-certificate'
+alias wget='wget --no-check-certificate'
