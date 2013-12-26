@@ -3,6 +3,7 @@ import shutil
 
 flist_level1=[
 '.bashrc',
+'.python_init.py',
 '.myvimrc',
 '.vim',
 ]
