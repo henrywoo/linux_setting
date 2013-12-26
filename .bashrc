@@ -31,11 +31,10 @@ export ZLIB_INCLUDE_DIR=/usr/lib/include
 export BOOST_ROOT=/nfs/boost
 export BOOST_HOME=/nfs/boost
 export JAVA_HOME=/nfs/jdk
-export R_HOME=/nfs/R
 
 #export PYTHONHOME=/nfs/python
 #export PATH=$JAVA_HOME/bin:$PYTHONHOME/bin:$PATH:/usr/local/bin
-export PATH=$R_HOME/bin:$JAVA_HOME/bin:$PATH:/usr/local/bin
+export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin
 
 #a function to git push ASAP
 ggg(){
@@ -52,3 +51,5 @@ ggg(){
 #Unable to establish SSL connection.
 alias wget='wget --no-check-certificate'
 alias ccat='pygmentize -g'
+
+export PYTHONSTARTUP=~/.python_init.py
