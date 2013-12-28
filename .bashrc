@@ -32,9 +32,10 @@ export BOOST_ROOT=/nfs/boost
 export BOOST_HOME=/nfs/boost
 export JAVA_HOME=/nfs/jdk
 
-#export PYTHONHOME=/nfs/python
+export PYTHONHOME273=/nfs/python273
+export PYTHONHOME3=/nfs/python3
 #export PATH=$JAVA_HOME/bin:$PYTHONHOME/bin:$PATH:/usr/local/bin
-export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin
+export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin:$PYTHONHOME273/bin:$PYTHONHOME3/bin
 
 #a function to git push ASAP
 ggg(){
