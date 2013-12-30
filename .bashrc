@@ -41,6 +41,9 @@ export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin:$PYTHONHOME273/bin:$PYTHONHOME3/
 ggg(){
   git add . && git commit -m "$1" && git push # ' -> "
 }
+pymod(){
+  python -c "import $1;print($1.__file__)"
+}
 
 #[c58][3][-bash](18:06:02)[0](root):/nfs/software[1034]
 #$wget https://pypi.python.org/packages/source/F/Flask/Flask-0.10.tar.gz
