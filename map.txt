@@ -33,3 +33,6 @@ query = '''update host_list set status = %s where host_name = %s;'''
 rest_server
 
 RPCHandler ---> Worker(thread)
+
+NGINX as:
+1. load balancer - upstream
