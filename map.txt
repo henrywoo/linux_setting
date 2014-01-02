@@ -1,0 +1,35 @@
+                                                               |-------------|     |--------|
+                                                               |             |     |        |
+        |-https(443)--x                           x-->(read)-->|             |     |        |
+        |             |                           |            |             |     |        |
+      <-|             |----NGINX---(proxy_pass)---|            | rest_server |---->|  ACFS  |---->MariaDB
+        |             |      A                    |            |             |     |        |
+        |-http(80)----x      |                    x-->(write)->|             |     |        |
+                             |                                 |             |     |        |
+                             |                                 |-------------|     |--------|
+                             |
+                             |
+                        (POST|r/w - 'https://db[s|m]local.' + dbs_host + '/' + cls + '/' + method)
+                             |
+                             |
+                             |
+                             |
+          heartBeat.py(every 60 seconds) via supervisord
+          TICK_60 event
+          "/opt/bin/supervisorctl -c /etc/opt/supervisord/supervisord.conf restart prometheus-utilities:"
+          programs=configmon,acfsmon,send_mail,restmemstat
+
+
+/opt/prometheus/collect_meters/healthz/collector.py -> This script stores CPU and memory usage in RRDtool
+
+
+mc = pylibmc.Client(["127.0.0.1"], binary=True,behaviors={"tcp_nodelay": True,"ketama": True})
+pprint(mc['site_configs'])
+
+10.254.12.107 : 0.004 :- - [30/Dec/2013:03:47:02 +0000] "POST https://dbmlocal.sg.dev/acfsbase/change_host_status HTTP/1.1" 200 29 "-" "python-requests/0.13.0" "-" 
+query = '''update host_list set status = %s where host_name = %s;'''
+
+
+rest_server
+
+RPCHandler ---> Worker(thread)
