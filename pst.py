@@ -7,7 +7,7 @@ fuheng@2013
 import sys
 import os
 
-cmd1='ps -eo ruser,pid,ppid,lwp,nlwp,psr,args -L'
+cmd1='ps -eo ruser,pid,ppid,lwp,nlwp,psr,rss,sz,vsz,pmem,pcpu,args -L'
 fname=os.path.basename(__file__)
 cmd2='grep -v '+ fname
 cmd3='grep --color=always -e "RUSE[R]"'
