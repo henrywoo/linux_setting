@@ -2,3 +2,13 @@ why git always ask username and password?
 1. .ssh/id_...
 2.
 $git remote set-url origin git@github.com:henrywoo/linux_setting.git
+
+
+
+remove untracked files:
+git clean -f -n
+
+
+compare files in different branches:
+
+git diff mybranch master -- myfile.cs
