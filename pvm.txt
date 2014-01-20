@@ -1,0 +1,54 @@
+'''1. Python under the hood '''
+
+Yet another "What is Python"?
+
+Python = Parser(front end) + Python Virtual Machine(back end)
+
+Where
+
+Parser is like a translator which converts source code into bytecode recognizable by PVM. Specifically, the Parser firstly loads the CST/parse tree into memory, which represents python's Grammar. Then it load python source code, parse it into tokens, and build an AST(abstract syntax tree) by jumping around in the DFAs. Once the AST is ready, python will generate symbol tables and bytecode and feed it into PVM.
+
+PVM is like a virtual CPU (the evaluator), and storage which has 3  things: code objects, state objects, and “regular” objects. The  evaluator evaluates the code objects in the context of state objects;  the state objects have pointers to namespaces which contain regular  objects which the evaluator uses.
+
+'''2. Old question: why python? '''
+
+Pros:
+
+(1.) high productivity (>java>C++>C>ASM)
+
+(2.) dynamic, fleaxible or powerful syntax (>Java/++C/...)
+
+Cons:
+
+Being dynamic and flexible causes issues on performance, security, scalability and maintainability and overuse of dynamic features
+
+'''3.  Idea of separating Parser and PVM '''
+
+As our company features on "secure" storage, it is necessary that we delivery compiled files, or even encrypted binary files, to customers, instead of source code.
+
+In the client side, we only need a python virtual machine to execute these binary files. This is pretty much like java, where people use javac compile source code and use java to run the class files.
+
+idea looks good, but how about feasiability?
+
+'''4. Implementation '''
+
+There is one keyword to disable in order to implement PVM - exec, which is very powerful but also can be a performance killer and security breakpoint.
+
+We also need to patch standard library and tornado.
+
+Specifically, for standard library:
+
+cPickle.c - replace or disable PyRun_String(Guido also mentioned this long time ago: https://mail.python.org/pipermail/python-dev/2002-August/027572.html)
+
+urlparse - unnecessarily use namedtuples which creates types on the fly
+
+Replace or disable namedtuple
+
+'''5.  import \__future\__'''
+
+bytecode encryption/optimization
+
+tornado optimization
+
+To be continued
+
