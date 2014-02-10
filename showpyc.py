@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import dis, marshal, struct, sys, time, types
 
 def show_file(fname):
