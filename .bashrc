@@ -55,5 +55,5 @@ pymod(){
 #Unable to establish SSL connection.
 alias wget='wget --no-check-certificate'
 alias ccat='pygmentize -g'
-
+alias glog='git log --color --graph --stat'
 export PYTHONSTARTUP=~/.python_init.py
