@@ -58,3 +58,4 @@ alias ccat='pygmentize -g'
 alias glog='git log --color --graph --stat'
 export PYTHONSTARTUP=~/.python_init.py
 ulimit -c unlimited
+#mount -t nfs c58:/nfs/ /nfs
