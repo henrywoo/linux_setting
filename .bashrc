@@ -57,6 +57,7 @@ alias wget='wget --no-check-certificate'
 alias ccat='pygmentize -g'
 alias glog='git log --color --graph --stat'
 alias gshow='git show --color'
+alias gdiff='git diff --color'
 export PYTHONSTARTUP=~/.python_init.py
 ulimit -c unlimited
 #mount -t nfs c58:/nfs/ /nfs
