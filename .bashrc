@@ -1,6 +1,8 @@
 # .bashrc
 export PS1="[\!]\[\033[1;32m\][\h][\l][\s](\t)\[\033[5;36m\][\j]\[\033[01;35m\](\u)\[\033[00m\] : \[\033[04;34m\]\w\[\033[00m\]\n\$"
 
+PROMPT_COMMAND='echo -ne "\033]0;*Terminal of Jackie*\007"'
+
 # User specific aliases and functions
 
 alias rm='rm -i'
