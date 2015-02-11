@@ -1,5 +1,6 @@
 #!/bin/env python
 
+# You may need to change ROOTDIR if necessary!
 
 import os
 import shutil
@@ -10,6 +11,8 @@ flist_level1=[
 '.myvimrc',
 '.vim',
 ]
+
+ROOTDIR = '/home/ubuntu/'
 
 class SafeMover:
   """back up the original file to x.bak and copy the new file"""
@@ -53,7 +56,7 @@ class SafeMover:
 if __name__=="__main__":
   curdir=os.getcwd()
   sm = SafeMover(flist_level1)
-  sm.backupfile("/root/")
-  sm.copy(curdir,"/root/")
-  print('. /root/.bashrc')
+  sm.backupfile(ROOTDIR)
+  sm.copy(curdir,ROOTDIR)
+  print('. {}.bashrc'.format(ROOTDIR))
 
