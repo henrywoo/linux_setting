@@ -41,7 +41,7 @@ export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin:$PYTHONHOME273/bin:$PYTHONHOME3/
 
 #a function to git push ASAP
 ggg(){
-  git add . && git commit -m "$1" && git push # ' -> "
+  git add -u && git commit -m "$1" && git push # ' -> "
 }
 pymod(){
   python -c "import $1;print($1.__file__)"
