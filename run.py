@@ -4,6 +4,7 @@
 
 import os
 import shutil
+from os.path import expanduser
 
 flist_level1=[
 '.bashrc',
@@ -12,7 +13,7 @@ flist_level1=[
 '.vim',
 ]
 
-ROOTDIR = '/home/ubuntu/'
+ROOTDIR = expanduser("~")
 
 class SafeMover:
   """back up the original file to x.bak and copy the new file"""
