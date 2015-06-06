@@ -12,14 +12,14 @@ alias ll='ls -alF --color=always' # -X sort by extension
 alias lx='ls -alFX --color=always' # -X sort by extension
 alias lz='ls -alF --sort=size --color=always' # -X sort by extension
 alias lt='ls -alFcpt --color=always' # -X sort by extension
-alias l='ls -alF --color=always'
+alias l='ls -aF --color=always'
 alias lh='ls -alFh --color=always'
 alias hhh='head -n 1 '
 alias ttt='tail -n 1 '
 alias vi='vim -u ~/.myvimrc'
 alias gp='grep --color=always'
 #alias m='mysql -S /nfs/data/mysql.sock'
-alias m='mysql -P 3306 -u root --host=ubu'
+#alias m='mysql -P 3306 -u root --host=ubu'
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -30,14 +30,14 @@ fi
 export ZLIB_LIBRARY=/lib64
 export ZLIB_INCLUDE_DIR=/usr/lib/include
 
-export BOOST_ROOT=/nfs/boost
-export BOOST_HOME=/nfs/boost
-export JAVA_HOME=/nfs/jdk
-
-export PYTHONHOME273=/nfs/python273
-export PYTHONHOME3=/nfs/python3
-#export PATH=$JAVA_HOME/bin:$PYTHONHOME/bin:$PATH:/usr/local/bin
-export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin:$PYTHONHOME273/bin:$PYTHONHOME3/bin
+#export BOOST_ROOT=/nfs/boost
+#export BOOST_HOME=/nfs/boost
+#export JAVA_HOME=/nfs/jdk
+#
+#export PYTHONHOME273=/nfs/python273
+#export PYTHONHOME3=/nfs/python3
+##export PATH=$JAVA_HOME/bin:$PYTHONHOME/bin:$PATH:/usr/local/bin
+#export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin:$PYTHONHOME273/bin:$PYTHONHOME3/bin
 
 #a function to git push ASAP
 ggg(){
@@ -63,3 +63,5 @@ alias gdiff='git diff --color'
 export PYTHONSTARTUP=~/.python_init.py
 ulimit -c unlimited
 #mount -t nfs c58:/nfs/ /nfs
+
+export EDITOR='vi'
