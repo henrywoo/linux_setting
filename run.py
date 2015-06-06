@@ -13,7 +13,7 @@ flist_level1=[
 '.vim',
 ]
 
-ROOTDIR = expanduser("~")
+ROOTDIR = expanduser("~")+"/"
 
 class SafeMover:
   """back up the original file to x.bak and copy the new file"""
