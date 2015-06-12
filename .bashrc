@@ -65,3 +65,4 @@ ulimit -c unlimited
 #mount -t nfs c58:/nfs/ /nfs
 
 export EDITOR='vi'
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
