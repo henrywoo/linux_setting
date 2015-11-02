@@ -66,3 +66,13 @@ ulimit -c unlimited
 
 export EDITOR='vi'
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+# For searching history based on prefix
+shopt -s histappend
+export PROMPT_COMMAND='history -a'
+bind '"\e[A"':history-search-backward
+bind '"\e[B"':history-search-forward
+bind '"\M-k"':"\"\C-ahistory -s '\C-e'\C-m\""
+bind '"\M-w"':"\"\C-k\C-ahistory | grep '^ *[0-9]* *\C-e.'\C-m\""
+
+
