@@ -60,6 +60,13 @@ alias ccat='pygmentize -g'
 alias glog='git log --color --graph --stat'
 alias gshow='git show --color'
 alias gdiff='git diff --color'
+
+# To list all files for a specific branch, e.g. master
+alias gls='git ls-tree -r master --name-only'
+
+# To get a list of all files that ever existed
+alias gll='git log --pretty=format: --name-status | cut -f2- | sort -u'
+
 export PYTHONSTARTUP=~/.python_init.py
 ulimit -c unlimited
 #mount -t nfs c58:/nfs/ /nfs
@@ -74,5 +81,4 @@ bind '"\e[A"':history-search-backward
 bind '"\e[B"':history-search-forward
 bind '"\M-k"':"\"\C-ahistory -s '\C-e'\C-m\""
 bind '"\M-w"':"\"\C-k\C-ahistory | grep '^ *[0-9]* *\C-e.'\C-m\""
-
 
