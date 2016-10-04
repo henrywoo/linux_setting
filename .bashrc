@@ -82,3 +82,5 @@ bind '"\e[B"':history-search-forward
 bind '"\M-k"':"\"\C-ahistory -s '\C-e'\C-m\""
 bind '"\M-w"':"\"\C-k\C-ahistory | grep '^ *[0-9]* *\C-e.'\C-m\""
 
+
+alias gdiff2='git difftool --tool=vimdiff -U99999'
