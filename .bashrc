@@ -84,3 +84,8 @@ bind '"\M-w"':"\"\C-k\C-ahistory | grep '^ *[0-9]* *\C-e.'\C-m\""
 
 
 alias gdiff2='git difftool --tool=vimdiff -U99999'
+
+alias ocamlenv='eval $(opam config env)'
+alias ocaml='rlwrap ocaml'
+
+
