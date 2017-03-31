@@ -88,4 +88,4 @@ alias gdiff2='git difftool --tool=vimdiff -U99999'
 alias ocamlenv='eval $(opam config env)'
 alias ocaml='rlwrap ocaml'
 
-
+source .git-prompt.sh
