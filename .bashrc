@@ -88,4 +88,9 @@ alias gdiff2='git difftool --tool=vimdiff -U99999'
 alias ocamlenv='eval $(opam config env)'
 alias ocaml='rlwrap ocaml'
 
-source .git-prompt.sh
+#cd ~
+#git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+GIT_PROMPT_ONLY_IN_REPO=1
+source ~/.bash-git-prompt/gitprompt.sh
+
+
