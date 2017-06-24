@@ -92,9 +92,12 @@ alias ocaml='rlwrap ocaml'
 #cd ~
 #git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
 GIT_PROMPT_ONLY_IN_REPO=1
+GIT_PROMPT_SHOW_UPSTREAM=1
+GIT_PROMPT_SHOW_UNTRACKED_FILES=no
 source ~/.bash-git-prompt/gitprompt.sh
 
+
 # for pandoc - https://github.com/jgm/pandoc/blob/master/INSTALL.md
-export PATH=/root/.local/bin:$PATH
+#export PATH=/root/.local/bin:$PATH
 
 
