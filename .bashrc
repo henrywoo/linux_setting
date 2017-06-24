@@ -94,4 +94,7 @@ alias ocaml='rlwrap ocaml'
 GIT_PROMPT_ONLY_IN_REPO=1
 source ~/.bash-git-prompt/gitprompt.sh
 
+# for pandoc - https://github.com/jgm/pandoc/blob/master/INSTALL.md
+export PATH=/root/.local/bin:$PATH
+
 
