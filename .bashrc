@@ -100,4 +100,4 @@ source ~/.bash-git-prompt/gitprompt.sh
 # for pandoc - https://github.com/jgm/pandoc/blob/master/INSTALL.md
 #export PATH=/root/.local/bin:$PATH
 
-
+export HISTSIZE=500000
