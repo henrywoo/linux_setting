@@ -101,3 +101,4 @@ source ~/.bash-git-prompt/gitprompt.sh
 #export PATH=/root/.local/bin:$PATH
 
 export HISTSIZE=500000
+export PATH=$PATH:/opt/share/cling/bin
