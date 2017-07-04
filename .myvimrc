@@ -39,23 +39,18 @@ nmap <silent> zz <C-z>
 set enc=utf-8
 set encoding=utf-8
 
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-
 set nowrapscan
 set ignorecase
 
 " list all colorscheme :colorscheme ^+d
 "colorscheme evening
 "colorscheme desert
-"colorscheme zellner
+colorscheme zellner
 "colorscheme peachpuff
-colorscheme delek
+"colorscheme delek
 
 set wrapscan
-set guifont=consolas:h11
+set guifont=consolas:h10
 set nu
 
 "ctags
@@ -117,7 +112,7 @@ endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set history=700
+set history=7000
 
 " Turn backup off, since most stuff is in SVN, git anyway...
 set nobackup
@@ -147,15 +142,15 @@ endfunction
 
 map <silent> <F7> :call ToggleLineNumbers() <CR>
 
-function! ToggleTab()
-  if &expandtab
-  set noexpandtab
-  else
-  set expandtab
-  endif
-endfunction
-
-map <silent> <F8> :call ToggleTab() <CR>
+"function! ToggleTab()
+"  if &expandtab
+"  set noexpandtab
+"  else
+"  set expandtab
+"  endif
+"endfunction
+"
+"map <silent> <F8> :call ToggleTab() <CR>
 " -------------------------------------
 "To avoid invoking help when accidentally pressing F1, map it to
 map <F1> <Esc>
@@ -178,4 +173,9 @@ let g:miniBufExplorerMoreThanOne = 0
 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 

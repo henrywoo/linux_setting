@@ -17,7 +17,7 @@ alias lh='ls -alFh --color=always'
 alias hhh='head -n 1 '
 alias ttt='tail -n 1 '
 alias vi='vim -u ~/.myvimrc'
-alias gp='grep --color=always'
+alias gp='grep --color=always -n'
 #alias m='mysql -S /nfs/data/mysql.sock'
 #alias m='mysql -P 3306 -u root --host=ubu'
 
@@ -102,3 +102,8 @@ source ~/.bash-git-prompt/gitprompt.sh
 
 export HISTSIZE=500000
 export PATH=$PATH:/opt/share/cling/bin
+export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
+export PATH=/opt/data/eclipse:$PATH
+export PATH=/root/data/clion-2017.1.3/bin:$PATH
+
+export ICAROOT="/opt/Citrix/ICAClient/ICAClient"
