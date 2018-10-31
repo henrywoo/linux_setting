@@ -8,12 +8,12 @@ PROMPT_COMMAND='echo -ne "\033]0;*Terminal of Jackie*\007"'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias ll='ls -alF --color=always' # -X sort by extension
-alias lx='ls -alFX --color=always' # -X sort by extension
-alias lz='ls -alF --sort=size --color=always' # -X sort by extension
-alias lt='ls -alFcpt --color=always' # -X sort by extension
-alias l='ls -aF --color=always'
-alias lh='ls -alFh --color=always'
+alias ll='ls -alFG' # -X sort by extension
+alias lx='ls -alFXG' # -X sort by extension
+alias lz='ls -alFS' # -X sort by extension
+alias lt='ls -alFcptG' # -X sort by extension
+alias l='ls -aFG'
+alias lh='ls -alFhG'
 alias hhh='head -n 1 '
 alias ttt='tail -n 1 '
 alias vi='vim -u ~/.myvimrc'
