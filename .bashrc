@@ -101,9 +101,28 @@ source ~/.bash-git-prompt/gitprompt.sh
 #export PATH=/root/.local/bin:$PATH
 
 export HISTSIZE=500000
-export PATH=$PATH:/opt/share/cling/bin
+export PATH=$PATH:/usr/local/cling/bin
 export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
 export PATH=/opt/data/eclipse:$PATH
 export PATH=/root/data/clion-2017.1.3/bin:$PATH
 
 export ICAROOT="/opt/Citrix/ICAClient/ICAClient"
+
+[ -s "/home/henry/.jabba/jabba.sh" ] && source "/home/henry/.jabba/jabba.sh"
+
+export PATH=$PATH:/home/henry/evolvability/protobuf/install/bin/
+export PATH=$PATH:/home/henry/evolvability/thrift/install/bin
+
+export PATH=/home/henry/eclipse/cpp-2018-12/eclipse:$PATH
+
+export PATH="$PATH:$HOME/bin"
+
+export PATH=/home/henry/opt/foxitsoftware/foxitreader:$PATH
+
+use_wufuheng(){
+  cd ~
+  mv .ssh .ssh.wufuheng
+}
+alias chrome='chromium-browser --no-sandbox >/dev/null 2>&1'
+alias sss='java -cp /usr/local/bin/ssh-switch-1.0-shaded.jar henry.wu.SSHSwitch'
+
