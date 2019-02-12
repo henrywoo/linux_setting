@@ -30,14 +30,14 @@ fi
 export ZLIB_LIBRARY=/lib64
 export ZLIB_INCLUDE_DIR=/usr/lib/include
 
+
 #export BOOST_ROOT=/nfs/boost
 #export BOOST_HOME=/nfs/boost
-#export JAVA_HOME=/nfs/jdk
 #
 #export PYTHONHOME273=/nfs/python273
 #export PYTHONHOME3=/nfs/python3
 ##export PATH=$JAVA_HOME/bin:$PYTHONHOME/bin:$PATH:/usr/local/bin
-#export PATH=$JAVA_HOME/bin:$PATH:/usr/local/bin:$PYTHONHOME273/bin:$PYTHONHOME3/bin
+
 
 #a function to git push ASAP
 ggg(){
@@ -84,17 +84,28 @@ if [[ $- =~ i ]]; then
   bind '"\M-w"':"\"\C-k\C-ahistory | grep '^ *[0-9]* *\C-e.'\C-m\""
 fi
 
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
+
 alias gdiff2='git difftool --tool=vimdiff -U99999'
 
 alias ocamlenv='eval $(opam config env)'
 alias ocaml='rlwrap ocaml'
 
 #cd ~
-#git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
-GIT_PROMPT_ONLY_IN_REPO=1
-GIT_PROMPT_SHOW_UPSTREAM=1
-GIT_PROMPT_SHOW_UNTRACKED_FILES=no
-source ~/.bash-git-prompt/gitprompt.sh
+#####git clone https://github.com/magicmonty/bash-git-prompt.git .bash-git-prompt --depth=1
+####GIT_PROMPT_ONLY_IN_REPO=1
+####GIT_PROMPT_SHOW_UPSTREAM=1
+####GIT_PROMPT_SHOW_UNTRACKED_FILES=no
+####source ~/.bash-git-prompt/gitprompt.sh
 
 
 # for pandoc - https://github.com/jgm/pandoc/blob/master/INSTALL.md
@@ -108,7 +119,7 @@ export PATH=/root/data/clion-2017.1.3/bin:$PATH
 
 export ICAROOT="/opt/Citrix/ICAClient/ICAClient"
 
-[ -s "/home/henry/.jabba/jabba.sh" ] && source "/home/henry/.jabba/jabba.sh"
+#[ -s "/home/henry/.jabba/jabba.sh" ] && source "/home/henry/.jabba/jabba.sh"
 
 export PATH=$PATH:/home/henry/evolvability/protobuf/install/bin/
 export PATH=$PATH:/home/henry/evolvability/thrift/install/bin
@@ -123,6 +134,84 @@ use_wufuheng(){
   cd ~
   mv .ssh .ssh.wufuheng
 }
-alias chrome='chromium-browser --no-sandbox >/dev/null 2>&1'
+alias chrome='chromium-browser --no-sandbox >/dev/null 2>&1 &'
 alias sss='java -cp /usr/local/bin/ssh-switch-1.0-shaded.jar henry.wu.SSHSwitch'
+
+
+#### java ####
+export JAVA_HOME=/opt/share/software/jdk1.8.0_191
+set CLASSPATH=$CLASSPATH:/opt/share/java_classpath/8
+export JAVA_BIN=$JAVA_HOME/bin
+export JAVA_LIB=$JAVA_HOME/lib
+export CLASSPATH=.:$JAVA_LIB/tools.jar:$JAVA_LIB/dt.jar:$CLASSPATH
+export PATH=$JAVA_BIN:$PATH
+
+##############################################################################
+export SCALA_HOME=/usr/share/scala/
+export PATH=$PATH:$SCALA_HOME/bin
+
+#### Hadoop ####
+export HADOOP_HOME=/opt/share/software/HadoopEcosystem/hadoop
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+export HADOOP_PID_DIR=/opt/hadoop/
+export HADOOP_LOG_DIR=/opt/hadoop/log
+export HDFS_NAMENODE_USER=root
+export HDFS_DATANODE_USER=root
+export HDFS_SECONDARYNAMENODE_USER=root
+
+# required by spark
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-/etc/hadoop/conf}
+# WARNING: YARN_CONF_DIR has been replaced by HADOOP_CONF_DIR. Using value of YARN_CONF_DIR.
+#export YARN_CONF_DIR=$HADOOP_HOME/etc/hadoop
+
+export YARN_RESOURCEMANAGER_USER="root"
+export YARN_NODEMANAGER_USER="root"
+
+#### Spark ####
+export SPARK_HOME=/opt/share/git.repo/spark.git
+#export SPARK_HOME=/opt/share/git.repo/spark.git/dist
+export PATH=$PATH:$SPARK_HOME/bin
+
+export CLASSPATH=.:$SCALA_HOME/lib/*:$CLASSPATH
+export CLASSPATH=$CLASSPATH:$SPARK_HOME/assembly/target/scala-2.12/jars/*
+export CLASSPATH=$CLASSPATH:/home/henry/share/software/db-derby-10.14.2.0-bin/lib/*
+
+# remove duplicates
+export PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
+export CLASSPATH=$(printf "%s" "$CLASSPATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
+
+export PYSPARK_DRIVER_PYTHON='ipython'
+
+#### HBase ####
+export HBASE_HOME=/opt/share/software/HadoopEcosystem/hbase
+export PATH=$PATH:$HBASE_HOME/bin
+export HBASE_CONF_DIR=$HBASE_HOME/conf
+export HBASE_MANAGES_ZK=true
+
+# https://stackoverflow.com/questions/49873655/when-running-spark-job-in-hadoop-cluster-i-am-getting-java-lang-noclassdeffounde
+#export HADOOP_CLASSPATH="$HADOOP_CLASSPATH:$HBASE_HOME/lib/*"
+export HADOOP_CLASSPATH="$CLASSPATH:$HBASE_HOME/lib/*"
+
+#### Cassandra ####
+export CASSANDRA_HOME="/var/lib/cassandra/"
+#export CASSANDRA_HOME="/opt/share/git.repo/cassandra.git/"
+##https://stackoverflow.com/questions/31294963/starting-cassandra-server-with-custom-configuration-file
+#export CASSANDRA_CONF="/opt/share/git.repo/cassandra.git/conf"
+export PATH=$PATH:$CASSANDRA_HOME/bin
+export CASSANDRA_LOG_DIR="/var/lib/cassandra/logs"
+
+#### Hive ####
+export HIVE_HOME=/opt/share/software/HadoopEcosystem/hive
+export PATH=$PATH:$HIVE_HOME/bin
+
+#### Zookeeper ####
+export ZOOKEEPER_HOME=/opt/share/software/HadoopEcosystem/zk
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
+export CLASSPATH=$CLASSPATH:$ZOOKEEPER_HOME/*
+
+# Flink
+export FLINK_HOME=/opt/share/git.repo/flink.git/build-target
+export PATH=$PATH:$FLINK_HOME/bin
+
 
