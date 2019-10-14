@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt update
+
 if ! [ -x "$(command -v netstat)" ]; then
   apt-get install net-tools -y
 fi
