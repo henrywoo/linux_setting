@@ -112,6 +112,8 @@ alias ocaml='rlwrap ocaml'
 #export PATH=/root/.local/bin:$PATH
 
 export HISTSIZE=500000
+
+# PATH
 export PATH=$PATH:/usr/local/cling/bin
 export PATH=/usr/local/texlive/2017/bin/x86_64-linux:$PATH
 export PATH=/opt/data/eclipse:$PATH
@@ -177,10 +179,6 @@ export CLASSPATH=.:$SCALA_HOME/lib/*:$CLASSPATH
 export CLASSPATH=$CLASSPATH:$SPARK_HOME/assembly/target/scala-2.12/jars/*
 export CLASSPATH=$CLASSPATH:/home/henry/share/software/db-derby-10.14.2.0-bin/lib/*
 
-# remove duplicates
-export PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
-export CLASSPATH=$(printf "%s" "$CLASSPATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
-
 export PYSPARK_DRIVER_PYTHON='ipython'
 
 #### HBase ####
@@ -213,5 +211,26 @@ export CLASSPATH=$CLASSPATH:$ZOOKEEPER_HOME/*
 # Flink
 export FLINK_HOME=/opt/share/git.repo/flink.git/build-target
 export PATH=$PATH:$FLINK_HOME/bin
+
+
+# remove duplicates
+export PATH=$(printf "%s" "$PATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
+export CLASSPATH=$(printf "%s" "$CLASSPATH" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }')
+
+###################### Utils ##############################################
+function str2title(){
+  title=`echo ${@} | tr '/' '-' |tr '[:punct:]' '_' | tr ' ' '-'`
+  title=${title,,}
+  echo $title
+}
+function str2filename(){
+  title=`echo ${@} | tr '/' '-' |tr '[:punct:]' '_' | tr ' ' '_'`
+  title=${title,,}
+  echo $title
+}
+
+alias gss="git status"
+alias gad="git add -u"
+alias df='df -x"squashfs"'
 
 
